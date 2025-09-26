@@ -31,8 +31,13 @@ def get_pokemon(name):
 def compare_poke(name1, name2):
     poke1 = get_stats(name1)
     poke2 = get_stats(name2)
-    print(poke1)
-    print(poke2)
+    for stat in poke1:
+        if poke1[stat] > poke2[stat]:
+            print(f'{name1} has a higher {stat} than {name2}')
+        elif poke1[stat] < poke2[stat]:
+            print(f'{name2} has a higher {stat} than {name1}')
+        else:
+            print(f'{name1} has the same {stat} as {name2}')
 
 
 def get_evo_chain(name):
@@ -68,7 +73,7 @@ def main():
     if option == 1:
         get_pokemon(input("Input a pokemon: "))
     elif option == 2:
-        print("currently in development")
+        compare_poke(input("Input a pokemon: "), input("Input a pokemon: "))
     elif option == 3:
         get_evo_chain(input("Input a pokemon: "))
     else:
